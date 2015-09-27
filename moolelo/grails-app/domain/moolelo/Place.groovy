@@ -3,8 +3,11 @@ package moolelo
 class Place {
 	
 	String name;
-	Location location;
+	
+	static belongsTo = [story:Story]
+	static hasOne = [location:Location]
 	
     static constraints = {
     }
+	
 }
