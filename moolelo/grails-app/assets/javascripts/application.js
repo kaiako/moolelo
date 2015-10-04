@@ -20,29 +20,38 @@ if (typeof jQuery !== 'undefined') {
 	})(jQuery);
 
 	$(document).ready(function(){
-      $('.parallax').parallax();
-      $('.datepicker').pickadate({
-    	  format: 'mm/dd/yyyy',
-    	  formatSubmit: 'mm/dd/yyyy',
-    	  selectYears: 1000,
-    	  selectMonths: true,
-    	  max: new Date()
-    	  
-      });
-      $('.location-modal-trigger').leanModal({
-    	  ready : function(){
-    		  showMap();
-    	  },
-    	  complete : function(){
-    		 $('#nameOfPlace').val($('#placeName').val()); 
-    		 $('#nameOfPlace').show();
-    	  }
-      });
-      $('#locationSearch').change(function(){
-    	  codeAddress($(this).val(), function(lat,lng){
-    		  $('[data-role="latitude"').val(lat);
-    		  $('[data-role="longitude"').val(lng);
-    	  });
-      });
+	  if($('.parallax').length){
+		  $('.parallax').parallax();
+	  }
+	  if($('.datepicker').length){
+	      $('.datepicker').pickadate({
+	    	  format: 'mm/dd/yyyy',
+	    	  formatSubmit: 'mm/dd/yyyy',
+	    	  selectYears: 1000,
+	    	  selectMonths: true,
+	    	  max: new Date()
+	    	  
+	      });
+	  }
+
+	  if($('.location-modal-trigger').length){
+	      $('.location-modal-trigger').leanModal({
+	    	  ready : function(){
+	    		  showMap();
+	    	  },
+	    	  complete : function(){
+	    		 $('#nameOfPlace').val($('#placeName').val()); 
+	    		 $('#nameOfPlace').show();
+	    	  }
+	      });
+	  }
+	  if($('#locationSearch').length){
+	      $('#locationSearch').change(function(){
+	    	  codeAddress($(this).val(), function(lat,lng){
+	    		  $('[data-role="latitude"').val(lat);
+	    		  $('[data-role="longitude"').val(lng);
+	    	  });
+	      });
+	  }
     });
 }

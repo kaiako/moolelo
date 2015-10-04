@@ -20,7 +20,7 @@ environments {
 	}
     development {
         dataSource {
-            dbCreate = "create" // one of 'create', 'create-drop', 'update', 'validate', ''
+            dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:mysql://localhost:3306/moolelo"
 			driverClassName = "com.mysql.jdbc.Driver"
 			dialect = org.hibernate.dialect.MySQL5InnoDBDialect
@@ -39,7 +39,7 @@ environments {
 		 username = "moolelo"
 		 password = "jordankl"
 		 pooled = true
-		 dbCreate = "create"
+		 dbCreate = "update"
 		 driverClassName = "com.mysql.jdbc.Driver"
 		 url = "jdbc:mysql://localhost:3306/moolelo?user={user}&password={password}"
 		 dialect = org.hibernate.dialect.MySQL5InnoDBDialect

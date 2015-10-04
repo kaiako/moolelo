@@ -13,7 +13,7 @@
 				<br>
 				<br>
 		        <div class="row center">
-		          <g:link controller="story" class="btn-large waves-effect waves-light black lighten-1">Get Started</g:link>
+		          <g:link controller="wizard" class="btn-large waves-effect waves-light black lighten-1">Get Started</g:link>
 		        </div>
 			</div>
 		</div>
