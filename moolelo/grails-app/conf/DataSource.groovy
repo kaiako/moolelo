@@ -16,6 +16,9 @@ hibernate {
 // environment specific settings
 environments {
 	devLocal{
+		
+	}
+    development {
         dataSource {
             dbCreate = "create" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:mysql://localhost:3306/moolelo"
@@ -24,16 +27,21 @@ environments {
 		    username = "root"
 		    password = "dev1"
         }
-		
-	}
-    development {
+    }
+    test {
+        dataSource {
+            dbCreate = "update"
+            url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
+        }
+    }
+    production {
 		dataSource {
-		 username = "jordankl"
-		 password = "laimana12"
+		 username = "moolelo"
+		 password = "jordankl"
 		 pooled = true
 		 dbCreate = "create"
 		 driverClassName = "com.mysql.jdbc.Driver"
-		 url = "jdbc:mysql://aa5tiigjfpu1cj.cd6zjsbnzz7i.us-west-2.rds.amazonaws.com:3306/moolelo?user={user}&password={password}"
+		 url = "jdbc:mysql://localhost:3306/moolelo?user={user}&password={password}"
 		 dialect = org.hibernate.dialect.MySQL5InnoDBDialect
 		 properties {
 		  validationQuery = "SELECT 1"
@@ -45,13 +53,5 @@ environments {
 		  minEvictableIdleTimeMillis = 1800000
 		  }
 		}
-    }
-    test {
-        dataSource {
-            dbCreate = "update"
-            url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
-        }
-    }
-    production {
 	   }
 }
